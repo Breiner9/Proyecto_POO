@@ -1,6 +1,6 @@
 #Importamos nuestra clase vehiculo para que coche la pueda heredar
 from clases.vehiculo import Vehiculo
-
+from clases.excepciones import ExcesoVelocidadException
 #Creamos la clase coche heredando atributos de vehiculo
 class Coche(Vehiculo):
         def __init__(self,marca,modelo,anio, motor):
@@ -21,4 +21,10 @@ class Coche(Vehiculo):
 #Creamos el método acelerar para coche
         def acelerar(self):
             self.velocidad += 200
+
+#Creamos el metodo incrementar velocidad para coche 
+        def incrVelocidad(self, velocidad):
+            self.velocidad += velocidad
+            if self.velocidad > 200:
+                raise ExcesoVelocidadException("¡¡¡ATENCION!! EXCESO DE VELOCIDAD")
             
