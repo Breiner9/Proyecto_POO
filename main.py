@@ -3,54 +3,134 @@ from clases.motor import Motor
 from clases.coche import Coche
 from clases.bicicleta import Bicicleta
 from clases.excepciones import ExcesoVelocidadException
-#NOTA: no imprimimos acelerar en coche ni en bici porque lo hacemos en la lista para que no se duplique la velocidad
 
+# Prueba la creación de varios objetos Coche y su método describir.
+def ejercicio_1():
+    print("=== Ejercicio 1: Clase basica ===")
 
-#Creamos un objeto para vehiculo 
-print("=== Bloque 1: Vehiculo ===")
-vehiculo1 = Vehiculo()
-print(f"Velocidad inicial: {vehiculo1.velocidad} km/h")
-vehiculo1.acelerar()
-print(f"Velocidad actual: {vehiculo1.velocidad} km/h")
-print()
+    motor1 = Motor("283 CV", "Electrico")
+    motor2 = Motor("150 CV", "Gasolina")
+    motor3 = Motor("200 CV", "Hibrido")
 
-#Creamos un objeto para coche 
-print("=== Bloque 2: Coche con motor ===")
-motor1 = Motor("283 CV", "Electrico")
-coche1 = Coche("Tesla", "Model 3", 2024, motor1)
-coche1.describir()
-coche1.acelerar()
-print(f"Velocidad: {coche1.velocidad} km/h")
-print()
+    coche1 = Coche("Tesla", "Model 3", 2024, motor1)
+    coche2 = Coche("Mazda", "3", 2022, motor2)
+    coche3 = Coche("Toyota", "Corolla", 2023, motor3)
 
-#Creamos un objeto para bicicleta
-print("=== Bloque 3: Bicicleta ===")
-bicicleta1 = Bicicleta("Montaña", 6)
-bicicleta1.describir()
-bicicleta1.acelerar()
-print(f"Velocidad: {bicicleta1.velocidad} km/h")
-print()
+    coche1.describir()
+    print()
 
-#Para no repetir las impresiones hechas, creamos otros objetos para darle orden 
-print("=== Bloque 4: Polimorfismo ===")
-motor2 = Motor("150 CV", "Gasolina")
-coche2 = Coche("Mazda", "3", 2022, motor2)
-bicicleta2 = Bicicleta("Ruta", 8)
+    coche2.describir()
+    print()
 
-transportes = [coche2, bicicleta2]
+    coche3.describir()
+    print()
 
-for transporte in transportes:
-    transporte.describir()
-    transporte.acelerar()
-    print(f"Velocidad: {transporte.velocidad} km/h")
+#Prueba para traer y cambiar datos con get y set 
 
-#Creamos una excepcion para coche 
-print("====== Bloque 5: Excepciones ========")
+def ejercicio_2():
+    print("=== Ejercicio 2: Encapsulamiento ===")
 
-motor3 = Motor("120 CV", "Gasolina")
-coche3 = Coche("Ford", "Focus", 2020, motor3)
+    motor1 = Motor("283 CV", "Electrico")
+    coche1 = Coche("Tesla", "Model 3", 2024, motor1)
 
-try:
-    coche1.incrVelocidad(250)
-except ExcesoVelocidadException as e:
-    print(e)
+    print("Datos iniciales del coche 1 ")
+    coche1.describir()
+
+    print("--- Modificando datos con setters ---")
+    coche1.setmarca("Volkswagen")
+    coche1.setmodelo("Gol")
+    coche1.setanio(2020)
+
+    print(f"Marca modificada: {coche1.getmarca()}")
+    print(f"Modelo modificado: {coche1.getmodelo()}")
+    print(f"Anio modificado: {coche1.getanio()}")
+
+    print("--- Coche 1 despues de setters ---")
+    coche1.describir()
+
+# Prueba que el constructor inicializa correctamente los atributos del coche.
+def ejercicio_3():
+    print("=== Ejercicio 3: Constructores ===")
+
+    motor1 = Motor("283 CV", "Electrico")
+    motor2 = Motor("150 CV", "Gasolina")
+
+    coche1 = Coche("Tesla", "Model 3", 2024, motor1)
+    coche2 = Coche("Mazda", "3", 2022, motor2)
+
+    coche1.describir()
+    print()
+
+    coche2.describir()
+    print()
+
+# Prueba la herencia usando Vehiculo como clase base y Bicicleta como clase hija.
+def ejercicio_4():
+    print("=== Ejercicio 4: Herencia ===")
+
+    vehiculo1 = Vehiculo()
+    print(f"Velocidad inicial del vehiculo: {vehiculo1.velocidad} km/h")
+    vehiculo1.acelerar()
+    print(f"Velocidad actual del vehiculo: {vehiculo1.velocidad} km/h")
+    print()
+
+    bicicleta1 = Bicicleta("Montaña", 6)
+    bicicleta1.describir()
+    bicicleta1.acelerar()
+    print(f"Velocidad actual de la bicicleta: {bicicleta1.velocidad} km/h")
+    print()
+
+# Prueba la sobreescritura y el polimorfismo con una lista de transportes.
+def ejercicio_5_y_6():
+    print("=== Ejercicio 5 y 6: Sobreescritura y Polimorfismo ===")
+
+    motor1 = Motor("180 CV", "Gasolina")
+    coche1 = Coche("Ford", "Focus", 2020, motor1)
+    bicicleta1 = Bicicleta("Ruta", 8)
+
+    transportes = [coche1, bicicleta1]
+
+    for transporte in transportes:
+        transporte.describir()
+        transporte.acelerar()
+        print(f"Velocidad actual: {transporte.velocidad} km/h")
+        print()
+
+# Prueba la composición creando un coche que contiene un objeto Motor.
+def ejercicio_9():
+    print("=== Ejercicio 9: Composicion ===")
+
+    motor1 = Motor("283 CV", "Electrico")
+    coche1 = Coche("Tesla", "Model 3", 2024, motor1)
+
+    coche1.describir()
+    coche1.acelerar()
+    print(f"Velocidad actual: {coche1.velocidad} km/h")
+    print()
+
+# Prueba la excepción personalizada cuando el coche supera la velocidad permitida.
+def ejercicio_10():
+    print("=== Ejercicio 10: Excepciones ===")
+
+    motor1 = Motor("120 CV", "Gasolina")
+    coche1 = Coche("Ford", "Focus", 2020, motor1)
+
+    try:
+        coche1.incrVelocidad(250)
+    except ExcesoVelocidadException as e:
+        print(e)
+
+    print()
+
+# Ejecuta todos los ejercicios en el orden en que se han trabajado.
+def main():
+    ejercicio_1()
+    ejercicio_2()
+    ejercicio_3()
+    ejercicio_4()
+    ejercicio_5_y_6()
+    ejercicio_9()
+    ejercicio_10()
+
+# Inicia la ejecución principal del archivo.
+main()

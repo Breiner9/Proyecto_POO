@@ -5,16 +5,44 @@ from clases.excepciones import ExcesoVelocidadException
 class Coche(Vehiculo):
         def __init__(self,marca,modelo,anio, motor):
             super().__init__()
-            self.marca = marca
-            self.modelo = modelo 
-            self.anio = anio 
+            self.__marca = marca
+            self.__modelo = modelo 
+            self.__anio = anio 
             self.motor = motor 
 
-#Creamos el método describir       
+#====================================================================
+# GETTERS Y SETTERS
+#====================================================================
+        def getmarca(self):
+            return self.__marca
+
+        def getmodelo(self):
+            return self.__modelo
+       
+        def getanio(self):
+            return self.__anio
+
+        def setmarca(self,marca):
+            self.__marca = marca
+
+        def setmodelo(self,modelo):
+            self.__modelo = modelo
+
+        def setanio(self, anio):
+            self.__anio =  anio 
+
+
+
+
+#====================================================================
+# METODOS PROPIOS 
+#====================================================================     
+
+#Creamos el metodo describir para coche
         def describir(self):
-            print(f"Marca: {self.marca}")
-            print(f"Modelo: {self.modelo}")
-            print(f"Anio: {self.anio}")
+            print(f"Marca: {self.__marca}")
+            print(f"Modelo: {self.__modelo}")
+            print(f"Anio: {self.__anio}")
             print(f"Potencia Motor: {self.motor.potencia}")
             print(f"Tipo Motor: {self.motor.tipo}")
 
