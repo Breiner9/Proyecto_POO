@@ -3,6 +3,9 @@ from clases.motor import Motor
 from clases.coche import Coche
 from clases.bicicleta import Bicicleta
 from clases.excepciones import ExcesoVelocidadException
+from clases.animal import Animal
+from clases.gato import Gato
+from clases.perro import Perro
 
 # Prueba la creación de varios objetos Coche y su método describir.
 def ejercicio_1():
@@ -65,7 +68,7 @@ def ejercicio_3():
     print()
 
 # Prueba la herencia usando Vehiculo como clase base y Bicicleta como clase hija.
-def ejercicio_4():
+def ejercicio_4(): 
     print("=== Ejercicio 4: Herencia ===")
 
     vehiculo1 = Vehiculo()
@@ -95,6 +98,18 @@ def ejercicio_5_y_6():
         transporte.acelerar()
         print(f"Velocidad actual: {transporte.velocidad} km/h")
         print()
+
+#Prueba clases abstractas 
+def ejercicio_7():
+    print("Clases abstractas: ")
+    perro1 = Perro()
+    gato1 = Gato()
+
+    animales = [perro1, gato1]
+
+    for animal in animales:
+        animal.hacerSonido()
+
 
 # Prueba la composición creando un coche que contiene un objeto Motor.
 def ejercicio_9():
@@ -129,6 +144,8 @@ def main():
     ejercicio_3()
     ejercicio_4()
     ejercicio_5_y_6()
+    ejercicio_7()
+    ejercicio_8()
     ejercicio_9()
     ejercicio_10()
 
