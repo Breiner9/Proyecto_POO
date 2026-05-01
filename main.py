@@ -6,6 +6,9 @@ from clases.excepciones import ExcesoVelocidadException
 from clases.animal import Animal
 from clases.gato import Gato
 from clases.perro import Perro
+from clases.volador import Volador
+from clases.pajaro import Pajaro
+from clases.avion import Avion
 
 # Prueba la creación de varios objetos Coche y su método describir.
 def ejercicio_1():
@@ -101,7 +104,7 @@ def ejercicio_5_y_6():
 
 #Prueba clases abstractas 
 def ejercicio_7():
-    print("Clases abstractas: ")
+    print("=== Ejercicio 7: Clases abstractas === ")
     perro1 = Perro()
     gato1 = Gato()
 
@@ -110,6 +113,16 @@ def ejercicio_7():
     for animal in animales:
         animal.hacerSonido()
 
+#Prueba interfaces
+def ejercicio_8():
+    print("=== Ejercicio 8: Interfaces ===")
+    avion1 = Avion()
+    pajaro1 = Pajaro()
+
+    cosas = [avion1, pajaro1]
+
+    for cosa in cosas:
+        cosa.volar()
 
 # Prueba la composición creando un coche que contiene un objeto Motor.
 def ejercicio_9():
