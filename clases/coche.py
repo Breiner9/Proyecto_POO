@@ -1,6 +1,7 @@
 #Importamos nuestra clase vehiculo para que coche la pueda heredar
 from clases.vehiculo import Vehiculo
 from clases.excepciones import ExcesoVelocidadException
+
 #Creamos la clase coche heredando atributos de vehiculo
 class Coche(Vehiculo):
         def __init__(self,marca,modelo,anio, motor):
@@ -13,6 +14,8 @@ class Coche(Vehiculo):
 #====================================================================
 # GETTERS Y SETTERS
 #====================================================================
+
+#Me muestra el dato que quiero
         def getmarca(self):
             return self.__marca
 
@@ -22,6 +25,7 @@ class Coche(Vehiculo):
         def getanio(self):
             return self.__anio
 
+#Puedo cambiar el dato que quiera
         def setmarca(self,marca):
             self.__marca = marca
 
@@ -30,9 +34,6 @@ class Coche(Vehiculo):
 
         def setanio(self, anio):
             self.__anio =  anio 
-
-
-
 
 #====================================================================
 # METODOS PROPIOS 
