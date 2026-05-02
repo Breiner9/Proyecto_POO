@@ -68,7 +68,7 @@ python main.py
 ---
 
 ## 👤 Autor
-Breiner Pinilla
-German Colmenares
-Angie Calderon
+Breiner Pinilla,
+German Colmenares,
+Angie Calderon,
 Nubia Rincon
