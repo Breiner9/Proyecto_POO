@@ -38,7 +38,7 @@ python main.py
 
 ---
 
-## 📚 Conceptos aplicados (según la guía)
+## 📚 Conceptos aplicados 
 - Clases, objetos y métodos  
 - Encapsulamiento y modificadores de acceso  
 - Constructores e inicialización de objetos  
